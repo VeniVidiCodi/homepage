@@ -3,9 +3,9 @@ top = open('templates/top.html').read()
 bottom = open('templates/bottom.html').read()
 
 # Contents 
-about_content = open('contents/about.html').read()
-projects_content = open('contents/projects.html').read()
-index_content = open('contents/index.html').read()
+about_content = open('content/about.html').read()
+projects_content = open('content/projects.html').read()
+index_content = open('content/index.html').read()
 
 
 
