@@ -2,27 +2,25 @@ def main():
     for page in pages:
         filename = page["filename"]
         output = page["output"]
-        title = page["title"]  
+        title = page["title"] 
 
-        content = read_file(filename)  
-        finished_content_page = apply_template(content, title)
+        content = read_file(filename) 
+        template = apply_template(content, title)
         # Write webpage
-        write_page(finished_content_page, output)
+        write_page(template, output)
 
-# def write_title(title, finished_content_page):
-#     finished_content_page = finished_content_page.replace("{{title}}", title)
-#     return finished_content_page
-
-# Generates individual pages with content and title
+# Generates individual pages, inserting page content and title
 def apply_template(content, title):
     template = open("templates/base.html").read()
-    finished_content_page = template.replace("{{content}}", content).replace("{{title}}", title)
+    template = template.replace("{{content}}", content)
+    template = template.replace("{{title}}", title)
     # finished_content_page = template.replace("{{title}}", finished_content_page)
-    return finished_content_page
+    return template
+
 
 # Writes generated pages into end files
-def write_page(finished_content_page, output):
-    open(output, "w+").write(finished_content_page)
+def write_page(template, output):
+    open(output, "w+").write(template)
     return 
 
 def read_file(filename):
@@ -48,5 +46,6 @@ pages = [
     },
 ]
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
+
