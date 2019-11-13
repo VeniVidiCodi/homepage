@@ -1,28 +1,33 @@
 def main():    
     for page in pages:
-        page_filename = page['filename']
-        page_output = page["output"]
+        filename = page["filename"]
+        output = page["output"]
+        title = page["title"]  
 
-        page_content = read_file(page_filename)        
-        finished_content_page = apply_template(page_content)
+        content = read_file(filename)  
+        finished_content_page = apply_template(content, title)
         # Write webpage
-        write_page(finished_content_page, page_output)
+        write_page(finished_content_page, output)
 
-def apply_template(page_content):
+# def write_title(title, finished_content_page):
+#     finished_content_page = finished_content_page.replace("{{title}}", title)
+#     return finished_content_page
+
+# Generates individual pages with content and title
+def apply_template(content, title):
     template = open("templates/base.html").read()
-    finished_content_page = template.replace("{{content}}", page_content)
-    finished_content_page = template.replace("{{title}}", finished_content_page)
-
+    finished_content_page = template.replace("{{content}}", content).replace("{{title}}", title)
+    # finished_content_page = template.replace("{{title}}", finished_content_page)
     return finished_content_page
 
-def write_page(finished_content_page, page_output):
-    open(page_output, "w+").write(finished_content_page)
+# Writes generated pages into end files
+def write_page(finished_content_page, output):
+    open(output, "w+").write(finished_content_page)
     return 
 
-def read_file(page_filename):
-    page_content = open(page_filename).read()
-    return page_content
-
+def read_file(filename):
+    content = open(filename).read()
+    return content
 
 
 pages = [
@@ -42,8 +47,6 @@ pages = [
     "title": "My programming blog",
     },
 ]
-
-main()  # testing output
 
 if __name__ == "main":
     main()
