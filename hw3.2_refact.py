@@ -14,7 +14,6 @@ def apply_template(content, title):
     template = open("templates/base.html").read()
     template = template.replace("{{content}}", content)
     template = template.replace("{{title}}", title)
-    # finished_content_page = template.replace("{{title}}", finished_content_page)
     return template
 
 
