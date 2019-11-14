@@ -1,7 +1,7 @@
 /* STATIC SITE GENERATOR INFORMATION */
 
 /* To generate updated webpages from the associated files in this directory,
-simply run either of the following: */
+simply run the following: */
 
 build.py
 
