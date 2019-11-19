@@ -1,13 +1,10 @@
-def main():    
-    for page in pages:
-        filename = page["filename"]
-        output = page["output"]
-        title = page["title"] 
+import glob
+import os
 
-        content = read_file(filename) 
-        template = apply_template(content, title)
-        # Write webpage
-        write_page(template, output)
+
+pages = []
+
+
 
 # Generates individual pages, inserting page content and title
 def apply_template(content, title):
@@ -27,23 +24,44 @@ def read_file(filename):
     return content
 
 
-pages = [
-    {
-    "filename": "content/about.html",
-    "output": "docs/about.html",
-    "title": "About Me",
-    },
-    {
-    "filename": "content/projects.html",
-    "output": "docs/projects.html",
-    "title": "My Projects",
-    },
-    {
-    "filename": "content/index.html",
-    "output": "docs/index.html",
-    "title": "My programming blog",
-    },
-]
+
+def create_pages():
+    all_html_files = glob.glob("content/*.html")
+    print(all_html_files)                               # lists all items in content directory
+
+    for file in all_html_files:
+        file_path = file
+        file_name = os.path.basename(file_path)
+        name_only, extension = os.path.splitext(file_name) 
+        output_file = os.path.join('docs', file_name)
+        pages.append({
+        "filename": file_path,
+        "title": name_only,
+        "output": output_file,
+        })
+        print(pages)
+
+# file_path = "content/blog.html"
+# file_name = os.path.basename(file_path)             # outputs filename at base of path
+# print(file_name)
+# name_only, extension = os.path.splitext(file_name)    # outputs dict of associated 
+# print(name_only)
+# output_file = os.path.join('docs', file_name)
+
+
+def main():    
+    create_pages()
+    for page in pages:
+        filename = page["filename"]
+        output = page["output"]
+        title = page["title"] 
+
+        content = read_file(filename) 
+        template = apply_template(content, title)
+        # Write webpage
+        write_page(template, output)
+
+    
 
 if __name__ == "__main__":
     main()
