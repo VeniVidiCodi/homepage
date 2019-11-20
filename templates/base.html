@@ -17,26 +17,30 @@
   
 <!--  NAVIGATION BAR  -->
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+      <nav class="navbar navbar-expand-lg sticky-top">
         <h3 class="navbar-brand"> Victor Raul Sanchez </h3>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link -active-" href="index.html">Blog <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link -active-" href="projects.html">Projects</a>
-            <a class="nav-item nav-link -active-" href="about.html">About</a>
-            <a class="nav-item nav-link disabled" href="#" hidden>Disabled</a>
+          {%- for page in pages %}
+              {%- if page.title == output_file|replace(".html", "") -%} 
+              <a href="{{ page.file_name }}" class="active">{{ page.title | title }}</a>
+              {% else %}
+              <a href="{{ page.file_name }}">{{ page.title | title }}</a>
+              {% endif -%}
+          {%- endfor -%}
           </div>
         </div>
       </nav>
 
+<!--  CONTENT SECTION  -->
 
 {{content}}
 
-    <!-- Optional JavaScript -->
 
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
