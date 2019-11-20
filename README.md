@@ -7,5 +7,5 @@
 - Rebuilding can be executed from command line arguments below
 
 Usage: 
-    - Rebuild site: python manage.py build
-    - Create new page: python manage.py new
+- Rebuild site: python manage.py build
+- Create new page: python manage.py new
