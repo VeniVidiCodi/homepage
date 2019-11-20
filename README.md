@@ -6,6 +6,6 @@
 - Allows user to create new content pages for rebuilding process
 - Rebuilding can be executed from command line arguments below
 
-Usage:
+Usage: 
     - Rebuild site: python manage.py build
     - Create new page: python manage.py new
