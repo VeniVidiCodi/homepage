@@ -1,34 +1,23 @@
-# course: Kickstart Coding
-# date: 11/19/19
-# name: Victor Sanchez
-# description: Templating for a static-site generator
-
-from utils import main
+# This is all boilerplate, don't touch this file for now!
 import sys
-from slugify import slugify
+import os
+from django.conf import settings
+from django.core.management import execute_from_command_line
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+settings.configure(
+    DEBUG=True,
+    ROOT_URLCONF='urls',
+    STATIC_URL='static/',
+    STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
+    INSTALLED_APPS=[
+        'django.contrib.staticfiles',
+    ],
+    TEMPLATES=[{
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    }],
+)
 
-
-if len(sys.argv) < 3 and len(sys.argv) > 1:
-    command = sys.argv[1]
-
-    if command == "build":
-        print("Build was specified")
-        main()
-    elif command == "new":
-        print("New page was specified")
-        new_name = slugify(input("New file name: "))
-        print('New file created:', (new_name + '.html'))
-        new_filename = ('content/' + new_name + '.html')
-        new_content = open('templates/new_content_temp.html').read()
-        open(new_filename, "w+").write(new_content)
-        
-else:
-    print("\nPlease specify 'build' or 'new'\n"
-        'Usage:\n'
-        '   Rebuild site: python manage.py build\n'
-        '   Create new page: python manage.py new')
-
-
-
+execute_from_command_line(sys.argv)
