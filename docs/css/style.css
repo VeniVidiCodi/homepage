@@ -1,0 +1,139 @@
+
+
+body {
+
+  font-family: 'Nunito Sans', sans-serif;
+  background-image: url("../images/escheresque_ste/escheresque_ste_@2X.png");
+  color: white;
+}
+
+h2, h4, h6 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #333;
+  }
+
+h3, h5 {
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 5px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+h4 {
+  margin: 5px;
+  padding: 5px;
+}
+
+p {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.image-fluid {
+  max-width: 100%;
+
+}
+
+.navbar-brand {
+  text-indent: 50px;
+}
+
+.col-md-4 {
+    background-color: rgb(34, 34, 34);
+    height: 100%;
+    max-width: auto;
+}
+
+.col-md-3 {
+    background-color: rgb(34, 34, 34);
+    height: 100%;
+    max-width: auto;
+}
+
+.col-md-6 {
+    background-color: rgb(34, 34, 34);
+    height: 100%;
+}
+
+button {
+  color: white; 
+  background: none;
+  border: none;
+  }
+
+
+a:link {
+  color: rgb(76, 107, 165);
+  background-color: transparent;
+  text-decoration: none;
+  align-items: center;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(27, 159, 27);
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+/* Adds a black background color to the top navigation */
+nav {
+    background-color: rgb(29, 28, 28);
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+nav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+nav a:hover {
+  background-color: rgb(143, 143, 143);
+  color: black;
+}
+
+/* Add a color to the active/current link */
+nav a.active {
+  background-color: #32383e;
+  color: white;
+}
+
+/* Right-aligned section inside the top navigation */
+nav-center {
+  float: right;
+}
+
+.active {
+  background-color: #32383e;
+  color: #883f3f;
+  border: 5px solid #333;
+}
+
+div.card-body {
+  background-color: #333;
+  border: solid 1px rgb(34, 34, 34);
+}
